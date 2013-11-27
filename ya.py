@@ -59,11 +59,16 @@ if __name__ == "__main__":
 	parser = argparse.ArgumentParser(description='Proccess Yandex log')
 	parser.add_argument('-i', dest='inputfile', type=argparse.FileType('r'), help='input file containing Yandex log', required=True)
 	parser.add_argument('-o', dest='outputfile', type=argparse.FileType('w'), help='output file to write result', required=True)
+	parser.add_argument('-empty', action='store_true', help='collect empty sessions or not')
 
 	args = parser.parse_args()
+	
+	COLLECT_EMPTY = args.empty
+	
 	try:
 		process_file(args.inputfile,args.outputfile)
-		sys.exit(1)
+		print('Done')
 	except:
-		print("Failed to process files. Maybe worng paths or permissions?")
+		print("Failed to process files. Maybe wrong paths or permissions?")
 		sys.exit(0)
+		
