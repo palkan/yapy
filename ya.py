@@ -65,10 +65,5 @@ if __name__ == "__main__":
 	
 	COLLECT_EMPTY = args.empty
 	
-	try:
-		process_file(args.inputfile,args.outputfile)
-		print('Done')
-	except:
-		print("Failed to process files. Maybe wrong paths or permissions?")
-		sys.exit(0)
-		
+	process_file(args.inputfile,args.outputfile)
+	print('Done')	
